@@ -1,30 +1,21 @@
 {
-  "name": "io.cordova.hellocordova",
-  "displayName": "HelloCordova",
-  "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "ecosystem:cordova"
-  ],
-  "author": "Apache Cordova Team",
-  "license": "Apache-2.0",
   "devDependencies": {
-    "cordova": "^11.0.0",
-    "cordova-browser": "^6.0.0",
-    "cordova-electron": "^3.1.0",
-    "cordova-ios": "^6.2.0",
-    "macos": "^0.0.1",
-    "web": "^0.0.2"
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "cssnano": "^5.1.12",
+    "fontawesome-subset": "^4.2.0",
+    "http-server": "^14.1.1",
+    "parcel": "^2.6.2",
+    "postcss": "^8.4.14",
+    "sharp": "^0.29.3",
+    "tailwindcss": "^3.1.6"
   },
-  "cordova": {
-    "platforms": [
-      "browser",
-      "ios",
-      "electron"
-    ]
+  "browserslist": "> 0.05%, last 5 versions, not dead",
+  "scripts": {
+    "serve": "parcel serve src/index.html",
+    "serve1": "http-server src/ --gzip --brotli",
+    "serve2": "parcel build src/index.html && http-server dist/ --gzip --brotli",
+    "build": "parcel build src/index.html",
+    "watch": "parcel watch src/index.html",
+    "subset-icons": "node utils/subset_fontawesome/subset_fontawesome.js"
   }
 }
