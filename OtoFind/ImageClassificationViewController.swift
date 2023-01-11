@@ -19,6 +19,7 @@ class ImageClassificationViewController: UIViewController {
     
     let aom_model: VNCoreMLModel;
     let csom_model: VNCoreMLModel;
+    let earwax_model: VNCoreMLModel;
     
     required init(coder: NSCoder) {
         do{
@@ -26,6 +27,7 @@ class ImageClassificationViewController: UIViewController {
             model_config.computeUnits = .all;
             self.aom_model = try VNCoreMLModel(for: AOM(configuration: model_config).model);
             self.csom_model = try VNCoreMLModel(for: CSOM(configuration: model_config).model);
+            self.earwax_model = try VNCoreMLModel(for: Earwax(configuration: model_config).model);
             super.init(coder: coder)!
         }catch{
             fatalError("Failed to load ML Model. Error: \(error)")
@@ -49,6 +51,12 @@ class ImageClassificationViewController: UIViewController {
         
         request = VNCoreMLRequest(model: csom_model, completionHandler: { [weak self] request, error in
             self?.processClassifications(for: request, error: error, tag: "Chronic Suppurative Otitis Media")
+        })
+        request.imageCropAndScaleOption = .centerCrop
+        requests.append(request);
+        
+        request = VNCoreMLRequest(model: earwax_model, completionHandler: { [weak self] request, error in
+            self?.processClassifications(for: request, error: error, tag: "Excessive Earwax")
         })
         request.imageCropAndScaleOption = .centerCrop
         requests.append(request);

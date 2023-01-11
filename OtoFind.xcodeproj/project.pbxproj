@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A5C9667296E7E64007F6238 /* CSOM.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C9666296E7E64007F6238 /* CSOM.mlpackage */; };
 		0A5C966F296E87C5007F6238 /* AOM.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C966E296E87C5007F6238 /* AOM.mlpackage */; };
+		0A861ECF296F63D30039255B /* Earwax.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 0A861ECE296F63D30039255B /* Earwax.mlpackage */; };
 		11063F621EC0EECC0033EE6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11063F611EC0EECC0033EE6D /* AppDelegate.swift */; };
 		11063F641EC0EECC0033EE6D /* ImageClassificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11063F631EC0EECC0033EE6D /* ImageClassificationViewController.swift */; };
 		11063F671EC0EECC0033EE6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11063F651EC0EECC0033EE6D /* Main.storyboard */; };
@@ -21,7 +22,9 @@
 		0A5C9666296E7E64007F6238 /* CSOM.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = CSOM.mlpackage; sourceTree = "<group>"; };
 		0A5C966E296E87C5007F6238 /* AOM.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = AOM.mlpackage; sourceTree = "<group>"; };
 		0A5C9670296E8800007F6238 /* OtoCNN_keras_CSOM-final.h5 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OtoCNN_keras_CSOM-final.h5"; sourceTree = "<group>"; };
-		0A5C9671296E8802007F6238 /* OtoCNN_keras-AOM-final.h5 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OtoCNN_keras-AOM-final.h5"; sourceTree = "<group>"; };
+		0A5C9671296E8802007F6238 /* OtoCNN_keras_AOM-final.h5 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OtoCNN_keras_AOM-final.h5"; sourceTree = "<group>"; };
+		0A861ECE296F63D30039255B /* Earwax.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = Earwax.mlpackage; sourceTree = "<group>"; };
+		0A861ED0296F64070039255B /* OtoCNN_keras_Earwax-final.h5 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OtoCNN_keras_Earwax-final.h5"; sourceTree = "<group>"; };
 		11063F5E1EC0EECC0033EE6D /* OtoFind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OtoFind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11063F611EC0EECC0033EE6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11063F631EC0EECC0033EE6D /* ImageClassificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassificationViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 				11063F631EC0EECC0033EE6D /* ImageClassificationViewController.swift */,
 				11063F731EC0F5270033EE6D /* CGImagePropertyOrientation+UIImageOrientation.swift */,
 				0A5C9666296E7E64007F6238 /* CSOM.mlpackage */,
+				0A861ECE296F63D30039255B /* Earwax.mlpackage */,
 				0A5C966E296E87C5007F6238 /* AOM.mlpackage */,
 				11063F651EC0EECC0033EE6D /* Main.storyboard */,
 				C82A1C951F1809F5005996F6 /* Supporting Files */,
@@ -78,8 +82,9 @@
 		C82A1C951F1809F5005996F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0A861ED0296F64070039255B /* OtoCNN_keras_Earwax-final.h5 */,
 				0A5C9670296E8800007F6238 /* OtoCNN_keras_CSOM-final.h5 */,
-				0A5C9671296E8802007F6238 /* OtoCNN_keras-AOM-final.h5 */,
+				0A5C9671296E8802007F6238 /* OtoCNN_keras_AOM-final.h5 */,
 				11063F681EC0EECC0033EE6D /* Assets.xcassets */,
 				11063F6D1EC0EECC0033EE6D /* Info.plist */,
 				113695D61EC1151400CA6C43 /* LaunchScreen.storyboard */,
@@ -163,6 +168,7 @@
 				11063F741EC0F5270033EE6D /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
 				11063F641EC0EECC0033EE6D /* ImageClassificationViewController.swift in Sources */,
 				0A5C966F296E87C5007F6238 /* AOM.mlpackage in Sources */,
+				0A861ECF296F63D30039255B /* Earwax.mlpackage in Sources */,
 				11063F621EC0EECC0033EE6D /* AppDelegate.swift in Sources */,
 				0A5C9667296E7E64007F6238 /* CSOM.mlpackage in Sources */,
 			);
