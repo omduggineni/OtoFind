@@ -22,7 +22,7 @@ class ImageClassificationViewController: UIViewController {
     
     required init(coder: NSCoder) {
         do{
-            var model_config = MLModelConfiguration();
+            let model_config = MLModelConfiguration();
             model_config.computeUnits = .all;
             self.aom_model = try VNCoreMLModel(for: AOM(configuration: model_config).model);
             self.csom_model = try VNCoreMLModel(for: CSOM(configuration: model_config).model);
