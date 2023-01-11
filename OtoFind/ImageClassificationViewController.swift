@@ -17,29 +17,47 @@ class ImageClassificationViewController: UIViewController {
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var classificationLabel: UILabel!
     
-    // MARK: - Image Classification
+    let aom_model: VNCoreMLModel;
+    let csom_model: VNCoreMLModel;
     
-    /// - Tag: MLModelSetup
-    lazy var classificationRequest: VNCoreMLRequest = {
-        do {
-            /*
-             Use the Swift class `MobileNet` Core ML generates from the model.
-             To use a different Core ML classifier model, add it to the project
-             and replace `MobileNet` with that model's generated Swift class.
-             */
-            let model = try VNCoreMLModel(for: OtoCNN2_iOS().model);
-            let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
-                self?.processClassifications(for: request, error: error)
-            })
-            request.imageCropAndScaleOption = .centerCrop
-            return request
-        } catch {
+    required init(coder: NSCoder) {
+        do{
+            var model_config = MLModelConfiguration();
+            model_config.computeUnits = .all;
+            self.aom_model = try VNCoreMLModel(for: AOM(configuration: model_config).model);
+            self.csom_model = try VNCoreMLModel(for: CSOM(configuration: model_config).model);
+            super.init(coder: coder)!
+        }catch{
             fatalError("Failed to load ML Model. Error: \(error)")
         }
+    }
+    
+    /// - Tag: MLModelSetup
+    lazy var classificationRequests: [VNCoreMLRequest] = {
+        var requests: [VNCoreMLRequest] = [];
+        var request: VNCoreMLRequest;
+        /*
+         Use the Swift class `MobileNet` Core ML generates from the model.
+         To use a different Core ML classifier model, add it to the project
+         and replace `MobileNet` with that model's generated Swift class.
+         */
+        request = VNCoreMLRequest(model: aom_model, completionHandler: { [weak self] request, error in
+            self?.processClassifications(for: request, error: error, tag: "Acute Otitis Media")
+        })
+        request.imageCropAndScaleOption = .centerCrop
+        requests.append(request);
+        
+        request = VNCoreMLRequest(model: csom_model, completionHandler: { [weak self] request, error in
+            self?.processClassifications(for: request, error: error, tag: "Chronic Suppurative Otitis Media")
+        })
+        request.imageCropAndScaleOption = .centerCrop
+        requests.append(request);
+        
+        return requests
     }()
     
     /// - Tag: PerformRequests
-    func updateClassifications(for image: UIImage) {
+    func updateClassifications(image: UIImage) {
         classificationLabel.text = "Classifying..."
         
         let orientation = CGImagePropertyOrientation(image.imageOrientation)
@@ -48,7 +66,9 @@ class ImageClassificationViewController: UIViewController {
         DispatchQueue.global(qos: .userInitiated).async {
             let handler = VNImageRequestHandler(ciImage: ciImage, orientation: orientation)
             do {
-                try handler.perform([self.classificationRequest])
+                for classificationRequest in self.classificationRequests{
+                    try handler.perform([classificationRequest])
+                }
             } catch {
                 /*
                  This handler catches general image processing errors. The `classificationRequest`'s
@@ -62,30 +82,25 @@ class ImageClassificationViewController: UIViewController {
     
     /// Updates the UI with the results of the classification.
     /// - Tag: ProcessClassifications
-    func processClassifications(for request: VNRequest, error: Error?) {
+    func processClassifications(for request: VNRequest, error: Error?, tag: String) {
         DispatchQueue.main.async {
             guard let results = request.results else {
                 self.classificationLabel.text = "An error has occured."
                 return
             }
             // The `results` will always be `VNClassificationObservation`s, as specified by the Core ML model in this project.
-            let classifications = results as! [VNClassificationObservation]
-        
-            if classifications.isEmpty {
-                self.classificationLabel.text = "Nothing recognized."
-            } else {
-                // Display top classifications ranked by confidence in the UI.
-                let topClassifications = classifications.prefix(1)
-                let descriptions = topClassifications.map { classification in
-                    // Formats the classification for display; e.g. "(0.37) cliff, drop, drop-off".
-                   return String(format: "%@ (%.2f%% confidence)", classification.identifier, classification.confidence*100)
-                }
-                self.classificationLabel.text = "Diagnosis: " + descriptions.joined(separator: "\n")
+            let classification = results[0] as! VNCoreMLFeatureValueObservation
+            let featureValue = classification.featureValue
+            let value = featureValue.multiArrayValue![0]
+            if self.classificationLabel.text == "Classifying..." {
+                self.classificationLabel.text = "\(tag): \(value.decimalValue*100.0)%";
+            }else{
+                self.classificationLabel.text! += "\n\(tag): \(value.decimalValue*100.0)%";
             }
         }
     }
     
-    // MARK: - Photo Actions
+    // MARK: - Allow User to take Photos
     
     @IBAction func takePicture() {
         // Show options for the source picker only if the camera is available.
@@ -127,6 +142,6 @@ extension ImageClassificationViewController: UIImagePickerControllerDelegate, UI
         // We always expect `imagePickerController(:didFinishPickingMediaWithInfo:)` to supply the original image.
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         imageView.image = image
-        updateClassifications(for: image)
+        updateClassifications(image: image)
     }
 }
