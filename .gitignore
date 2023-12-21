@@ -1,2 +1,5 @@
- Finder
+# Finder
 .DS_Store
+
+# Xcode build
+build/

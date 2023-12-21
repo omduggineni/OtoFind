@@ -1,8 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-Contains the application's delegate.
+Opens the main window of the application.
 */
 
 import UIKit

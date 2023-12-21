@@ -1,8 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-Core Graphics utility extensions used in the sample code.
+Core Graphics utility extension used to convert orientations to the proper format
 */
 
 import UIKit

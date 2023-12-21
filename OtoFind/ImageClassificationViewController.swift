@@ -1,8 +1,6 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
 View controller for selecting images and applying Vision + Core ML processing.
+Uses three custom models.
 */
 
 import UIKit
