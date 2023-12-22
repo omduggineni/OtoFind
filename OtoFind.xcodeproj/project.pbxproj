@@ -86,8 +86,8 @@
 				0A5C9670296E8800007F6238 /* OtoCNN_keras_CSOM-final.h5 */,
 				0A5C9671296E8802007F6238 /* OtoCNN_keras_AOM-final.h5 */,
 				11063F681EC0EECC0033EE6D /* Assets.xcassets */,
-				11063F6D1EC0EECC0033EE6D /* Info.plist */,
 				113695D61EC1151400CA6C43 /* LaunchScreen.storyboard */,
+				11063F6D1EC0EECC0033EE6D /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
