@@ -322,12 +322,14 @@
 				COREML_CODEGEN_LANGUAGE = Swift;
 				DEVELOPMENT_TEAM = S473VJXVXW;
 				INFOPLIST_FILE = "OtoFind/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = OtoFind;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.otofind.OtoFind;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.otoscope-cv4.OtoFind";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = YES;
@@ -342,14 +344,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = OtoFind/OtoFind.entitlements;
 				COREML_CODEGEN_LANGUAGE = Swift;
-				DEVELOPMENT_TEAM = S473VJXVXW;
+				DEVELOPMENT_TEAM = RJ3FRBV28J;
 				INFOPLIST_FILE = "OtoFind/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = OtoFind;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.otofind.OtoFind;
+				PRODUCT_BUNDLE_IDENTIFIER = com.otoscope.OtoFind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = YES;
