@@ -324,7 +324,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = OtoFind/OtoFindDebug.entitlements;
 				COREML_CODEGEN_LANGUAGE = Swift;
-				DEVELOPMENT_TEAM = S473VJXVXW;
+				DEVELOPMENT_TEAM = RJ3FRBV28J;
 				INFOPLIST_FILE = "OtoFind/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = OtoFind;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";

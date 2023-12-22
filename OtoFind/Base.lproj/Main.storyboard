@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f06-Zb-U4b">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f06-Zb-U4b">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
@@ -66,6 +66,8 @@
                             <constraint firstItem="f06-Zb-U4b" firstAttribute="bottom" secondItem="Gj5-Ut-Web" secondAttribute="bottom" id="FFN-BK-Lqg"/>
                             <constraint firstItem="f06-Zb-U4b" firstAttribute="top" secondItem="TJ5-fY-hgK" secondAttribute="bottom" constant="16" id="N1o-WE-6Ao"/>
                             <constraint firstItem="Gj5-Ut-Web" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TJ5-fY-hgK" secondAttribute="trailing" constant="16" id="XxC-Sv-6lb"/>
+                            <constraint firstItem="Gj5-Ut-Web" firstAttribute="trailing" secondItem="f06-Zb-U4b" secondAttribute="trailing" id="lZM-Nq-a8C"/>
+                            <constraint firstItem="f06-Zb-U4b" firstAttribute="leading" secondItem="Gj5-Ut-Web" secondAttribute="leading" id="z54-eF-YKl"/>
                         </constraints>
                     </view>
                     <connections>
